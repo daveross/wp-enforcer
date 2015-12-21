@@ -83,6 +83,10 @@ error() {
   exit 1;
 }
 
+if [[ ! -f "$PROJECT"/vendor/bin/phpcs ]]; then
+  error "PHPCS wasn't found. Run 'composer install' to install dependencies."
+fi
+
 echo "Installing WP Enforcer..."
 
 # Check that the target Git repository exists
